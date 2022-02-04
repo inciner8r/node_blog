@@ -1,8 +1,13 @@
 const express = require("express");
+const mongoose = require("mongoose");
+
 const app = express();
 const article_router = require("./routes/articles");
 
+mongoose.connect("mongodb://127.0.0.1:27017/demo");
+
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: false }));
 
 app.use("/articles", article_router);
 
