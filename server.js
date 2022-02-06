@@ -4,7 +4,10 @@ const mongoose = require("mongoose");
 const app = express();
 const article_router = require("./routes/articles");
 
-mongoose.connect("mongodb://127.0.0.1:27017/demo");
+mongoose.connect("mongodb://127.0.0.1:27017/demo", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
